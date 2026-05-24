@@ -1,0 +1,28 @@
+[package]
+name = "offlinetranslator-bridge"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "offlinetranslator"
+crate-type = ["cdylib"]
+
+[features]
+default = ["ppocr", "manga-ocr"]
+ppocr = ["translator/ppocr"]
+manga-ocr = ["dep:anyhow", "dep:ndarray", "dep:ort", "dep:serde", "dep:tokenizers"]
+
+[dependencies]
+translator = { path = "../vendor/translator-rs", features = ["tesseract"] }
+serde_json = "1"
+image = { version = "0.25", default-features = false }
+anyhow = { version = "1", optional = true }
+ndarray = { version = "0.16", optional = true }
+ort = { version = "=2.0.0-rc.10", default-features = false, features = ["std", "ndarray", "load-dynamic"], optional = true }
+serde = { version = "1", features = ["derive"], optional = true }
+tokenizers = { version = "0.22", default-features = false, features = ["fancy-regex"], optional = true }
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = "symbols"

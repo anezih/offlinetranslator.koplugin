@@ -1,0 +1,13 @@
+build/
+libs/
+native/bridge/target/
+native/onnxruntime/
+native/vendor/
+*.so
+*.a
+*.o
+*.tmp
+*.gz
+*.zip
+*.tgz
+*.aar
