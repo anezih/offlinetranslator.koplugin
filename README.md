@@ -6,6 +6,10 @@ directory for Tesseract OCR, and optional PaddleOCR/PPOCR MNN models for
 speech-bubble OCR. Japanese manga bubbles can also use Manga OCR through
 ONNX Runtime when the Manga OCR model files are installed.
 
+https://github.com/user-attachments/assets/504dc19d-37d4-4b99-b3e2-670b6c3d7bd1
+
+*Plugin preview*
+
 ## Runtime
 
 The plugin is available from the Search settings menu in both the file manager
